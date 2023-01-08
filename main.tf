@@ -54,7 +54,7 @@ data "ibm_is_image" "image" {
 }
 
 resource "ibm_is_ssh_key" "ssh_key" {
-  name       = "example_ssh"
+  name       = "example-key"
   public_key = "ssh-rsa ${file(var.ssh_key)}"
 }
 
@@ -77,7 +77,7 @@ resource "ibm_is_instance" "tf_instance" {
 }
 
 # Reserve a floating ip
-data "ibm_is_floating_ip" "testacc_floatingip" {
+resource "ibm_is_floating_ip" "testacc_floatingip" {
   name   = var.instance_name
   target = ibm_is_instance.tf_instance.primary_network_interface[0].id
 }
