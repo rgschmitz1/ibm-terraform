@@ -60,6 +60,8 @@ resource "ibm_is_ssh_key" "ssh_key" {
 
 # Create a virtual server instance
 resource "ibm_is_instance" "tf_instance" {
+  depends_on = [ibm_is_security_group_rule.outbound]
+
   name    = var.instance_name
   image   = data.ibm_is_image.image.id
   profile = var.instance_profile
