@@ -1,3 +1,13 @@
+variable "ssh_key" {
+  type        = string
+  default     = "~/.ssh/id_rsa.pub"
+  description = "IBM public SSH key"
+}
+
+locals {
+  public_ssh_key = file(pathexpand(var.ssh_key))
+}
+
 variable "zone" {
   type    = string
   default = "us-south-1"
@@ -11,12 +21,6 @@ variable "ipv4_subnet" {
 variable "bwb_port" {
   type    = number
   default = 6080
-}
-
-variable "ssh_key" {
-  type        = string
-  default     = "~/.ssh/id_rsa.pub"
-  description = "IBM SSH key"
 }
 
 variable "image" {
