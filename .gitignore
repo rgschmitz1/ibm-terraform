@@ -1,1 +1,4 @@
 .terraform*
+terraform.tfvars
+# Uncomment below to store terraform state
+terraform.tfstate*

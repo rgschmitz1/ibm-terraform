@@ -55,7 +55,7 @@ data "ibm_is_image" "image" {
 
 resource "ibm_is_ssh_key" "ssh_key" {
   name       = "example-key"
-  public_key = "ssh-rsa ${file(var.ssh_key)}"
+  public_key = "${file(pathexpand(var.ssh_key))}"
 }
 
 # Create a virtual server instance

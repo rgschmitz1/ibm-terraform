@@ -4,10 +4,17 @@ Document infrastructure as code (IaC) used to automate IBM cloud VPC instance de
 
 # Dependencies
 
-* Terraform cli
 * IBM cli
+* Terraform cli
 
 # Setup
+
+Create a file called ***terraform.tfvars*** with the following content. Note to create an API key see, https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key
+
+```
+ibmcloud_api_key = "<ibmcloud_api_key>"
+region = "<region>"
+```
 
 Install necessary terraform modules using, this only needs to be done once.
 ```
