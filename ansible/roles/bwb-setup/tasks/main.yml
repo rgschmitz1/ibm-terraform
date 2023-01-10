@@ -1,0 +1,6 @@
+---
+- name: Copy BioDepot specific setup scripts.
+  ansible.builtin.copy:
+   src: "{{ role_path }}/files/"
+   dest: "{{ ansible_user_dir }}/"
+   mode: 0775

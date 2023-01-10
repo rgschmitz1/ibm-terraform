@@ -4,16 +4,16 @@ Document infrastructure as code (IaC) used to automate IBM cloud VPC instance de
 
 # Dependencies
 
-* IBM cli
-* Terraform cli
+* IBM CLI
+* Terraform CLI
 
 # Setup
 
 Create a file called ***terraform.tfvars*** with the following content. Note to create an API key see, https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key
 
 ```
-ibmcloud_api_key = "<ibmcloud_api_key>"
-region = "<region>"
+ibmcloud_api_key = "<IBM Cloud API key>"
+image            = "<machine image name>"
 ```
 
 Install necessary terraform modules using, this only needs to be done once.
@@ -36,4 +36,12 @@ terraform apply
 
 ```
 terraform destroy
+```
+
+# VM configuration
+
+The Ansible playbook included in this repository can be used to configure remote servers quickly.  This assumes that ansible is installed on the workspace used for provisioning the server.
+
+```
+ansible-playbook -i <remote IP>, -u ubuntu bwb-setup.yml
 ```

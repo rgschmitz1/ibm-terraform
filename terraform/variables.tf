@@ -1,3 +1,14 @@
+variable "ibmcloud_api_key" {
+  type        = string
+  description = "IBM API key"
+}
+
+variable "region" {
+  type        = string
+  default     = "us-south"
+  description = "IBM region"
+}
+
 variable "ssh_key" {
   type        = string
   default     = "~/.ssh/id_rsa.pub"
@@ -25,13 +36,12 @@ variable "bwb_port" {
 
 variable "image" {
   type        = string
-  default     = "ibm-ubuntu-22-04-1-minimal-amd64-3"
   description = "IBM image"
 }
 
 variable "instance_name" {
   type        = string
-  default     = "example-instance"
+  default     = "ibm-vm"
   description = "IBM instance name"
 }
 

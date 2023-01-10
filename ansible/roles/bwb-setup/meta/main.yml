@@ -1,0 +1,18 @@
+galaxy_info:
+  role_name: bwb-setup
+  author: Robert Schmitz III
+  description: Installs scripts for downloading/running Biodepot workflow builder (Bwb)
+  license: BSD-3-Clause
+  min_ansible_version: 2.13
+  platforms:
+    - name: Debian
+      versions:
+        - buster
+        - bullseye
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+  galaxy_tags: []
+
+dependencies: []
