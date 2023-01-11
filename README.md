@@ -6,6 +6,7 @@ Document infrastructure as code (IaC) used to automate IBM cloud VPC instance de
 
 * IBM CLI
 * Terraform CLI
+* Ansible CLI
 
 # Setup
 
