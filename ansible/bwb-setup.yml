@@ -21,7 +21,7 @@
       path: /var/run/reboot-required
     register: reboot_required
 
-  - name: Reboot if required
+  - name: Reboot
     become: yes
     ansible.builtin.reboot:
       reboot_timeout: 300
