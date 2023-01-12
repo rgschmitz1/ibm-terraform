@@ -1,0 +1,11 @@
+---
+- name: Configure VM for running Bwb workflows
+  hosts: all
+
+  roles:
+    - {role: docker, become: yes, docker_install_compose: no}
+    - bwb-setup
+
+  tasks:
+  - ansible.builtin.include_tasks:
+      file: dist-upgrade.yml

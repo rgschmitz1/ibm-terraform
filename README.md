@@ -47,5 +47,5 @@ The Ansible playbook included in this repository can be used to configure remote
 # Install required roles
 ansible-galaxy install -r requirements.yml
 # Run the playbook to setup the remote server
-ansible-playbook -i <remote IP>, -u ubuntu bwb-setup.yml
+ansible-playbook -i <remote IP>, -u ubuntu main.yml
 ```
