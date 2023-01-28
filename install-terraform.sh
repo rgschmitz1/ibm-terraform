@@ -5,7 +5,7 @@ if which terraform &> /dev/null; then
 	exit 0
 fi
 
-sudo apt-get update && sudo apt-get install -y gnupg software-properties-common || (echo 'failed to install dependencies'; exit 1)
+sudo apt-get update && sudo apt-get install -y gnupg || (echo 'failed to install dependencies'; exit 1)
 
 wget -O- https://apt.releases.hashicorp.com/gpg | \
     sudo gpg --dearmor --output /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -19,7 +19,7 @@ if ! gpg --no-default-keyring \
 fi
 
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
-    https://apt.releases.hashicorp.com $(awk -F= '/UBUNTU_CODENAME/ {print $NF}' /etc/os-release) main" | \
+    https://apt.releases.hashicorp.com $(awk -F= '/CODENAME/ {print $NF}' /etc/os-release) main" | \
     sudo tee /etc/apt/sources.list.d/hashicorp.list
 
 sudo apt-get update && sudo apt-get install terraform
