@@ -6,7 +6,6 @@ Document infrastructure as code (IaC) used to automate IBM cloud VPC instance de
 
 * IBM CLI
 * Terraform CLI
-* Ansible CLI
 
 # Setup
 
@@ -37,15 +36,4 @@ terraform apply
 
 ```
 terraform destroy
-```
-
-# VM configuration
-
-The Ansible playbook included in this repository can be used to configure remote servers quickly.  This assumes that ansible is installed on the workspace used for provisioning the server.
-
-```
-# Install required roles
-ansible-galaxy install -r requirements.yml
-# Run the playbook to setup the remote server
-ansible-playbook -i <remote IP>, -u ubuntu main.yml
 ```
