@@ -1,3 +1,8 @@
+variable "instance_count" {
+  type    = number
+  default = 1
+}
+
 variable "ibmcloud_api_key" {
   type        = string
   description = "IBM API key"

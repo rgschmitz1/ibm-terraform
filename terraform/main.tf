@@ -13,7 +13,8 @@ resource "ibm_is_ssh_key" "ssh_key" {
 resource "ibm_is_instance" "tf_instance" {
   depends_on = [ibm_is_security_group_rule.outbound]
 
-  name    = var.instance_name
+  count   = var.instance_count
+  name    = "${var.instance_name}-${count.index}"
   image   = data.ibm_is_image.image.id
   profile = var.instance_profile
 
@@ -29,6 +30,8 @@ resource "ibm_is_instance" "tf_instance" {
 
 # Reserve a floating ip
 resource "ibm_is_floating_ip" "testacc_floatingip" {
-  name   = var.instance_name
-  target = ibm_is_instance.tf_instance.primary_network_interface[0].id
+  count      = var.instance_count
+  depends_on = [ibm_is_instance.tf_instance]
+  name       = "${var.instance_name}-${count.index}"
+  target     = ibm_is_instance.tf_instance[count.index].primary_network_interface[0].id
 }
